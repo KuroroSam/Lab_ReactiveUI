@@ -1,0 +1,73 @@
+﻿using System;
+
+using UIKit;
+using ReactiveUI.Cocoa;
+using ReactiveUI;
+using Core.ViewModels;
+using System.Reactive.Linq;
+using CoreAnimation;
+using Foundation;
+
+
+namespace testXS
+{
+	public partial class ViewController : ReactiveViewController, IViewFor<LoginViewModel>
+	{
+		public ViewController (IntPtr handle) : base (handle)
+		{
+		}
+
+		public override void ViewDidLoad ()
+		{
+			base.ViewDidLoad ();
+			// Perform any additional setup after loading the view, typically from a nib.
+			this.Bind(ViewModel, vm => vm.UserName, v => v.UserNameText.Text);
+			this.Bind(ViewModel, vm => vm.Password, v => v.PasswordText.Text);
+			this.BindCommand(ViewModel, vm => vm.Login, v => v.Login);
+
+			ViewModel = new LoginViewModel ();
+
+			//Listening to Commands from the View via WhenAnyObservable
+			//the only thing we don't want to do in ViewModel is the navigation
+			//Android and Window navigation should be fine but iOS doesn't make sense
+			this.WhenAnyObservable (x => x.ViewModel.Login)
+				.Where (x => x == true) //Filter the signal
+				.Subscribe (x => {
+				this.PerformSegue ("ToPlanView", this);
+			});
+
+			ViewModel.Login.ThrownExceptions.Subscribe (ex => {
+				var message = ex.Message;
+				infoLabel.Text = message;
+				var a = (CAKeyFrameAnimation)CAKeyFrameAnimation.FromKeyPath ("transform");  
+				a.Values =  new NSObject[] {
+					NSValue.FromCATransform3D(CATransform3D.MakeTranslation(-5.0f, 0.0f, 0.0f)),
+					NSValue.FromCATransform3D(CATransform3D.MakeTranslation(5.0f, 0.0f, 0.0f))
+				};
+				a.AutoReverses = true;
+				a.RepeatCount = 4;
+				a.Duration = 0.1;
+
+				this.View.Layer.AddAnimation(a,null);
+			});
+		}
+
+		public override void DidReceiveMemoryWarning ()
+		{
+			base.DidReceiveMemoryWarning ();
+			// Release any cached data, images, etc that aren't in use.
+		}
+
+		LoginViewModel _ViewModel;
+		public LoginViewModel ViewModel {
+			get { return _ViewModel; }
+			set { this.RaiseAndSetIfChanged(ref _ViewModel, value); }
+		}
+
+		object IViewFor.ViewModel {
+			get { return ViewModel; }
+			set { ViewModel = (LoginViewModel)value; }
+		}
+	}
+}
+
