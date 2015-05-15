@@ -101,6 +101,14 @@
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="FilterDrawingView.cs" />
+    <Compile Include="FilterDrawingView.designer.cs">
+      <DependentUpon>FilterDrawingView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilterDrawingCell.cs" />
+    <Compile Include="FilterDrawingCell.designer.cs">
+      <DependentUpon>FilterDrawingCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
