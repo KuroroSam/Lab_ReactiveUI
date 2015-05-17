@@ -1,15 +1,22 @@
 ﻿<Properties StartupItem="testXS.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone5s.8.3" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="FilterGroupViewController.cs">
     <Files>
-      <File FileName="FilterDrawingView.cs" Line="1" Column="1" />
-      <File FileName="FilterDrawingView.designer.cs" Line="1" Column="1" />
+      <File FileName="FilterDrawingView.cs" Line="56" Column="64" />
+      <File FileName="FilterGroupViewController.cs" Line="50" Column="42" />
+      <File FileName="Main.cs" Line="12" Column="1" />
+      <File FileName="FilterGroupCell.cs" Line="41" Column="2" />
+      <File FileName="../SnagR/Core/ViewModels/GroupViewModel.cs" Line="21" Column="13" />
+      <File FileName="../SnagR/Core/ViewModels/FilterGroupViewModel.cs" Line="1" Column="1" />
+      <File FileName="zSource.cs" Line="43" Column="26" />
+      <File FileName="zCell.cs" Line="17" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/zamkasumi/Projects/testXS/DrawingFilterViewControllerController.cs" line="33" column="1" />
       <Breakpoint file="/Users/zamkasumi/Projects/testXS/DrawingFilterController.cs" line="9" column="1" />
+      <Breakpoint file="/Users/zamkasumi/Projects/SnagR/Core/ViewModels/FilterGroupViewModel.cs" line="84" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

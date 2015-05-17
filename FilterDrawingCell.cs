@@ -20,6 +20,7 @@ namespace testXS
 		
 			this.OneWayBind(this.ViewModel, x => x.DrawingTitle, x => x.TextLabel.Text);
 			this.OneWayBind(this.ViewModel, x => x.Count, x => x.DetailTextLabel.Text);
+			//this.Accessory = UITableViewCellAccessory.Checkmark;
 
 		}
 
