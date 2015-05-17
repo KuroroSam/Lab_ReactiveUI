@@ -32,7 +32,7 @@ namespace testXS
 			TableView.RegisterClassForCellReuse(typeof(FilterGroupCell),@"FilterGroupCell");
 			var s = new ReactiveTableViewSource<GroupViewModel>(TableView,ViewModel.SearchResults,new Foundation.NSString("FilterGroupCell"),44,cell=>{
 
-					cell.Accessory = UITableViewCellAccessory.Checkmark;
+				//cell.Accessory = index.Row % 2 == 0 ?  UITableViewCellAccessory.Checkmark : UITableViewCellAccessory.None;
 
 				});
 
@@ -48,9 +48,10 @@ namespace testXS
 				tvd.RowSelectedObs.Subscribe (c => {
 					var index = c.Item2.Row;
 					ViewModel.SelectedGroup = ViewModel.SearchResults.ElementAt(index);
+					//handle ui in this way?
+					//ViewModel.SearchResults.ElementAt(index).Selected = !ViewModel.SearchResults.ElementAt(index).Selected;
 				});
-
-
+				
 				this.Bind (ViewModel, vm => vm.SearchQuery, v => v.SearchBar.Text);
 
 			}

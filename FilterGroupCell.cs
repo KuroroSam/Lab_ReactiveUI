@@ -20,6 +20,7 @@ namespace testXS
 
 			this.OneWayBind(this.ViewModel, x => x.Title, x => x.TextLabel.Text);
 			this.OneWayBind(this.ViewModel, x => x.Count, x => x.DetailTextLabel.Text);
+			this.OneWayBind (this.ViewModel, x => x.Selected,x=>x.Accessory,null,null,new CheckMarkConverter());
 			//this.Accessory = UITableViewCellAccessory.Checkmark;
 
 		}
@@ -38,5 +39,46 @@ namespace testXS
 			set { ((IViewFor<GroupViewModel>)this).ViewModel = (GroupViewModel)value; }
 		}
 }
+
+	public class DueDateConverter : IBindingTypeConverter
+	{
+		#region IBindingTypeConverter implementation
+
+		public int GetAffinityForObjects(Type lhs, Type rhs)
+		{
+			// Too bad, I will never be called
+			throw new NotImplementedException();
+		}
+
+		public bool TryConvert(object from, Type toType, object conversionHint, out object result)
+		{
+			var dt = (DateTime)from;
+
+			result = dt < DateTime.UtcNow ? "Date lies in the past" : "Date lies in the future";
+			return true;
+		}
+
+		#endregion
+	}
+	public class CheckMarkConverter : IBindingTypeConverter
+	{
+		#region IBindingTypeConverter implementation
+
+		public int GetAffinityForObjects(Type lhs, Type rhs)
+		{
+			// Too bad, I will never be called
+			throw new NotImplementedException();
+		}
+
+		public bool TryConvert(object from, Type toType, object conversionHint, out object result)
+		{
+			var selected = (Boolean)from;
+
+			result = selected ? UITableViewCellAccessory.Checkmark : UITableViewCellAccessory.None;
+			return true;
+		}
+
+		#endregion
+	}
 }
 
