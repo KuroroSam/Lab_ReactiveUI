@@ -18,11 +18,27 @@ namespace testXS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIBarButtonItem DoneButton { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UISearchBar SearhBar { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableView TableView { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (DoneButton != null) {
 				DoneButton.Dispose ();
 				DoneButton = null;
+			}
+			if (SearhBar != null) {
+				SearhBar.Dispose ();
+				SearhBar = null;
+			}
+			if (TableView != null) {
+				TableView.Dispose ();
+				TableView = null;
 			}
 		}
 	}

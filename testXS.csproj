@@ -130,6 +130,10 @@
     <Compile Include="FilterLocationController.designer.cs">
       <DependentUpon>FilterLocationController.cs</DependentUpon>
     </Compile>
+    <Compile Include="FilterLocationCell.cs" />
+    <Compile Include="FilterLocationCell.designer.cs">
+      <DependentUpon>FilterLocationCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
