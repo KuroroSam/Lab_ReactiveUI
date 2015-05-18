@@ -26,22 +26,10 @@ namespace testXS
 			public override void ViewDidLoad ()
 			{
 				base.LoadView ();
-				//ViewModel = new FilterGroupViewModel ();
+				TableView.RegisterClassForCellReuse(typeof(FilterGroupCell),@"FilterGroupCell");
+				TableView.Source = new ReactiveTableViewSource<GroupViewModel>(TableView,ViewModel.SearchResults,new Foundation.NSString("FilterGroupCell"),44,cell=>{});
 
-				//config the table
-			TableView.RegisterClassForCellReuse(typeof(FilterGroupCell),@"FilterGroupCell");
-			var s = new ReactiveTableViewSource<GroupViewModel>(TableView,ViewModel.SearchResults,new Foundation.NSString("FilterGroupCell"),44,cell=>{
-
-				//cell.Accessory = index.Row % 2 == 0 ?  UITableViewCellAccessory.Checkmark : UITableViewCellAccessory.None;
-
-				});
-
-				TableView.Source = s;
-
-				//Test Binding
-				//ViewModel.SearchResults.First ().Count = 10;
-
-				//Old way
+				
 				var tvd = new UITableViewDelegateRx ();
 				TableView.Delegate = tvd;
 
@@ -50,15 +38,12 @@ namespace testXS
 					ViewModel.SelectedItem = ViewModel.SearchResults.ElementAt(index);
 				//UI Deselceted Row
 				c.Item1.DeselectRow(c.Item2,true);
-					//handle ui in this way?
-					//ViewModel.SearchResults.ElementAt(index).Selected = !ViewModel.SearchResults.ElementAt(index).Selected;
+		
 				});
 				
 				this.Bind (ViewModel, vm => vm.SearchQuery, v => v.SearchBar.Text);
 
 			}
-
-
 
 			public FilterGroupViewController (IntPtr handle) : base (handle)
 			{

@@ -29,9 +29,9 @@ namespace testXS
 			if (segue.Identifier == @"ShowFilter") {
 				var controller = segue.DestinationViewController as UITabBarController;
 				(controller.ViewControllers[1] as FilterGroupViewController).ViewModel = ViewModel.FilterGroup;
-
 			}
 		}
+
 		PlanViewModel _ViewModel;
 		public PlanViewModel ViewModel {
 			get { return _ViewModel; }
