@@ -43,6 +43,8 @@ namespace testXS
 				
 				this.Bind (ViewModel, vm => vm.SearchQuery, v => v.SearchBar.Text);
 
+			//UI Staff
+
 			}
 
 			public FilterGroupViewController (IntPtr handle) : base (handle)

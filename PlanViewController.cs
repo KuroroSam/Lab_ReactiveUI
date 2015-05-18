@@ -2,6 +2,7 @@ using System;
 using UIKit;
 using ReactiveUI.Cocoa;
 using ReactiveUI;
+using UIKit.Rx;
 using Core.ViewModels;
 using System.Reactive.Linq;
 using CoreAnimation;
@@ -22,6 +23,8 @@ namespace testXS
 			base.ViewDidLoad ();
 
 			ViewModel = new PlanViewModel ();
+
+
 		}
 
 		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
@@ -30,7 +33,12 @@ namespace testXS
 				var controller = segue.DestinationViewController as UITabBarController;
 				(controller.ViewControllers[1] as FilterGroupViewController).ViewModel = ViewModel.FilterGroup;
 			}
+
+		
+
+
 		}
+
 
 		PlanViewModel _ViewModel;
 		public PlanViewModel ViewModel {
