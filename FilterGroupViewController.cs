@@ -47,7 +47,9 @@ namespace testXS
 
 				tvd.RowSelectedObs.Subscribe (c => {
 					var index = c.Item2.Row;
-					ViewModel.SelectedGroup = ViewModel.SearchResults.ElementAt(index);
+					ViewModel.SelectedItem = ViewModel.SearchResults.ElementAt(index);
+				//UI Deselceted Row
+				c.Item1.DeselectRow(c.Item2,true);
 					//handle ui in this way?
 					//ViewModel.SearchResults.ElementAt(index).Selected = !ViewModel.SearchResults.ElementAt(index).Selected;
 				});
