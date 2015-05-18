@@ -126,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ilg-BS-yuA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-285" y="76"/>
+            <point key="canvasLocation" x="-220" y="-139"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="iNf-Ic-uHV">
@@ -241,7 +241,7 @@
                                             <rect key="frame" x="16" y="17" width="32.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="215">
@@ -270,12 +270,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="109" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="215" y="831"/>
+            <point key="canvasLocation" x="-238" y="376"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ajl-Og-tkT">
             <objects>
-                <viewController id="BwT-2Y-K5j" sceneMemberID="viewController">
+                <viewController id="BwT-2Y-K5j" sceneMemberID="viewController" customClass="PlanViewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="e5B-Pq-MJv"/>
                         <viewControllerLayoutGuide type="bottom" id="B4E-hy-vJr"/>
@@ -289,7 +289,7 @@
                                 <items>
                                     <barButtonItem title="Item" id="FpA-0h-1Xk">
                                         <connections>
-                                            <segue destination="AaE-rg-nFm" kind="popoverPresentation" popoverAnchorBarButtonItem="FpA-0h-1Xk" id="yCu-mB-p4u">
+                                            <segue destination="AaE-rg-nFm" kind="popoverPresentation" popoverAnchorBarButtonItem="FpA-0h-1Xk" id="yCu-mB-p4u" identifier="ShowFilter">
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                             </segue>
                                         </connections>

@@ -122,6 +122,10 @@
     <Compile Include="FilterGroupCell.designer.cs">
       <DependentUpon>FilterGroupCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlanViewController.cs" />
+    <Compile Include="PlanViewController.designer.cs">
+      <DependentUpon>PlanViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

@@ -26,7 +26,7 @@ namespace testXS
 			public override void ViewDidLoad ()
 			{
 				base.LoadView ();
-				ViewModel = new FilterGroupViewModel ();
+				//ViewModel = new FilterGroupViewModel ();
 
 				//config the table
 			TableView.RegisterClassForCellReuse(typeof(FilterGroupCell),@"FilterGroupCell");
