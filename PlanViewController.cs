@@ -35,7 +35,7 @@ namespace testXS
 				(controller.ViewControllers [0] as FilterLocationController).ViewModel = ViewModel.FilterLocationVM;
 				(controller.ViewControllers [1] as FilterGroupViewController).ViewModel = ViewModel.FilterGroup;
 			} else if (segue.Identifier == @"ShowFilter2"){
-				var controller = segue.DestinationViewController as FilterLocationController;
+				var controller = segue.DestinationViewController as TestL2ViewController;
 				controller.ViewModel = ViewModel.FilterLocationVM;
 //				controller._nav = this.NavigationController;
 //				var s = this.NavigationController;

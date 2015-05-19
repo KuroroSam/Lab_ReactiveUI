@@ -11,8 +11,8 @@ using UIKit;
 
 namespace testXS
 {
-	[Register ("FilterLocationController")]
-	partial class FilterLocationController
+	[Register ("TestLayoutViewController")]
+	partial class TestLayoutViewController
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]

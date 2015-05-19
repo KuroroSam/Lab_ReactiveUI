@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3" misplaced="YES">
                                 <rect key="frame" x="252" y="137" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="kOx-eL-zbt"/>
@@ -25,7 +25,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4" misplaced="YES">
                                 <rect key="frame" x="252" y="200" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -136,7 +136,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterLocationCell" textLabel="N0p-sa-mI5" detailTextLabel="eKh-g3-Snb" style="IBUITableViewCellStyleValue1" id="C5g-Ug-njx" customClass="FilterLocationCell">
-                                        <rect key="frame" x="0.0" y="22" width="584" height="44"/>
+                                        <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C5g-Ug-njx" id="nei-P8-YfY">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -348,7 +348,7 @@
                                 <items>
                                     <barButtonItem title="Item" id="FpA-0h-1Xk">
                                         <connections>
-                                            <segue destination="ciE-bC-y8q" kind="popoverPresentation" popoverAnchorBarButtonItem="FpA-0h-1Xk" id="e59-vg-tPo">
+                                            <segue destination="ciE-bC-y8q" kind="popoverPresentation" popoverAnchorBarButtonItem="FpA-0h-1Xk" id="e59-vg-tPo" identifier="ShowFilter2">
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                             </segue>
                                         </connections>
@@ -372,7 +372,7 @@
         <!--View Controller-->
         <scene sceneID="FH2-PQ-W5m">
             <objects>
-                <viewController id="ciE-bC-y8q" sceneMemberID="viewController">
+                <viewController id="ciE-bC-y8q" sceneMemberID="viewController" customClass="TestL2ViewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ytN-Pc-vBd"/>
                         <viewControllerLayoutGuide type="bottom" id="x2L-ao-1mZ"/>
@@ -405,15 +405,19 @@
                             <constraint firstAttribute="leading" secondItem="2Qd-S7-1qn" secondAttribute="leading" id="H0f-aW-Gad"/>
                             <constraint firstItem="524-I4-rtc" firstAttribute="trailing" secondItem="7th-K2-9PG" secondAttribute="trailing" id="J6R-Pu-ETr"/>
                             <constraint firstAttribute="trailing" secondItem="2Qd-S7-1qn" secondAttribute="trailing" id="Tv8-T0-iRy"/>
-                            <constraint firstItem="x2L-ao-1mZ" firstAttribute="top" secondItem="524-I4-rtc" secondAttribute="bottom" id="gDs-Rz-jsb"/>
+                            <constraint firstItem="524-I4-rtc" firstAttribute="bottom" secondItem="x2L-ao-1mZ" secondAttribute="top" id="gDs-Rz-jsb"/>
                             <constraint firstItem="c06-PH-Ds6" firstAttribute="leading" secondItem="2Qd-S7-1qn" secondAttribute="leading" id="tSu-9f-LwW"/>
                             <constraint firstItem="c06-PH-Ds6" firstAttribute="trailing" secondItem="2Qd-S7-1qn" secondAttribute="trailing" id="tu9-rK-kil"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="SearchBar" destination="c06-PH-Ds6" id="name-outlet-c06-PH-Ds6"/>
+                        <outlet property="TableView" destination="524-I4-rtc" id="name-outlet-524-I4-rtc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wVY-XX-B1i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="596" y="1724"/>
+            <point key="canvasLocation" x="622" y="1644"/>
         </scene>
     </scenes>
 </document>
