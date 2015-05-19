@@ -126,22 +126,14 @@
     <Compile Include="PlanViewController.designer.cs">
       <DependentUpon>PlanViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="FilterLocationController.cs" />
-    <Compile Include="FilterLocationController.designer.cs">
-      <DependentUpon>FilterLocationController.cs</DependentUpon>
-    </Compile>
     <Compile Include="FilterLocationCell.cs" />
     <Compile Include="FilterLocationCell.designer.cs">
       <DependentUpon>FilterLocationCell.cs</DependentUpon>
     </Compile>
     <Compile Include="TestPopoverDelegate.cs" />
-    <Compile Include="TestLayoutViewController.cs" />
-    <Compile Include="TestLayoutViewController.designer.cs">
-      <DependentUpon>TestLayoutViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TestL2ViewController.cs" />
-    <Compile Include="TestL2ViewController.designer.cs">
-      <DependentUpon>TestL2ViewController.cs</DependentUpon>
+    <Compile Include="FilterLocationViewController.cs" />
+    <Compile Include="FilterLocationViewController.designer.cs">
+      <DependentUpon>FilterLocationViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

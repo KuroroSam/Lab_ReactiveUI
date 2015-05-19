@@ -7,31 +7,22 @@ using UIKit.Rx;
 using Core.ViewModels;
 using System.Linq;
 
+
 namespace testXS
 {
-	partial class TestLayoutViewController : ReactiveViewController, IViewFor<FilterViewModel<LocationViewModel, int>>
+	partial class FilterLocationViewController : ReactiveViewController,IViewFor<FilterViewModel<LocationViewModel, int>>
 	{
-		public TestLayoutViewController (IntPtr handle) : base (handle)
+		public FilterLocationViewController (IntPtr handle) : base (handle)
 		{
-		}
-
-		FilterViewModel<LocationViewModel, int> _ViewModel;
-		public FilterViewModel<LocationViewModel, int> ViewModel {
-			get { return _ViewModel; }
-			set { this.RaiseAndSetIfChanged(ref _ViewModel, value); }
-		}
-
-		object IViewFor.ViewModel {
-			get { return ViewModel; }
-			set { ViewModel = (FilterViewModel<LocationViewModel, int>)value; }
 		}
 
 		public override void ViewDidLoad ()
 		{
-			base.LoadView ();
+			base.ViewDidLoad ();
+
+			var top = this.TopLayoutGuide;
 			const string cellKey = @"FilterLocationCell";
 
-			var topGuide = this.TopLayoutGuide;
 
 			TableView.RegisterClassForCellReuse(typeof(FilterLocationCell),cellKey);
 			TableView.Source = new ReactiveTableViewSource<LocationViewModel>(TableView,ViewModel.SearchResults,new Foundation.NSString(cellKey),44,cell=>{});
@@ -48,12 +39,23 @@ namespace testXS
 
 			});
 
-			this.Bind (ViewModel, vm => vm.SearchQuery, v => v.SearhBar.Text);
+			this.Bind (ViewModel, vm => vm.SearchQuery, v => v.SearchBar.Text);
 
-			//UI Staff
-			//			DoneButton.Clicked += delegate {
-			//				this.DismissViewController(true,null);
-			//			};
+			//old way
+			DoneButton.Clicked += (object sender, EventArgs e) => {
+				this.DismissViewController(true,null);
+			};
+		}
+
+		FilterViewModel<LocationViewModel, int> _ViewModel;
+		public FilterViewModel<LocationViewModel, int> ViewModel {
+			get { return _ViewModel; }
+			set { this.RaiseAndSetIfChanged(ref _ViewModel, value); }
+		}
+
+		object IViewFor.ViewModel {
+			get { return ViewModel; }
+			set { ViewModel = (FilterViewModel<LocationViewModel, int>)value; }
 		}
 	}
 }

@@ -11,12 +11,16 @@ using UIKit;
 
 namespace testXS
 {
-	[Register ("TestLayoutViewController")]
-	partial class TestLayoutViewController
+	[Register ("FilterLocationViewController")]
+	partial class FilterLocationViewController
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UISearchBar SearhBar { get; set; }
+		UIBarButtonItem DoneButton { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UISearchBar SearchBar { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -24,9 +28,13 @@ namespace testXS
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (SearhBar != null) {
-				SearhBar.Dispose ();
-				SearhBar = null;
+			if (DoneButton != null) {
+				DoneButton.Dispose ();
+				DoneButton = null;
+			}
+			if (SearchBar != null) {
+				SearchBar.Dispose ();
+				SearchBar = null;
 			}
 			if (TableView != null) {
 				TableView.Dispose ();
