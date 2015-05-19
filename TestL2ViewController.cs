@@ -39,6 +39,11 @@ namespace testXS
 			});
 
 			this.Bind (ViewModel, vm => vm.SearchQuery, v => v.SearchBar.Text);
+
+			//old way
+			DoneButton.Clicked += (object sender, EventArgs e) => {
+				this.DismissViewController(true,null);
+			};
 		}
 
 		FilterViewModel<LocationViewModel, int> _ViewModel;
