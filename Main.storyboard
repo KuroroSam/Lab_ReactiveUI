@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3" misplaced="YES">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3">
                                 <rect key="frame" x="252" y="137" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="kOx-eL-zbt"/>
@@ -25,7 +25,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4" misplaced="YES">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4">
                                 <rect key="frame" x="252" y="200" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -236,7 +236,7 @@
             </objects>
             <point key="canvasLocation" x="-251" y="1514"/>
         </scene>
-        <!--Item-->
+        <!--Group-->
         <scene sceneID="HVp-BE-H2U">
             <objects>
                 <viewController id="dD6-Jp-iUL" customClass="FilterGroupViewController" sceneMemberID="viewController">
@@ -260,26 +260,30 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="b1c-Sh-yvK">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="b1c-Sh-yvK">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="b1c-Sh-yvK" firstAttribute="top" secondItem="E6T-8k-nwg" secondAttribute="bottom" id="8dk-C9-iZS"/>
                             <constraint firstAttribute="trailing" secondItem="IzX-EL-tbv" secondAttribute="trailing" id="Dmv-8x-QwF"/>
                             <constraint firstItem="E6T-8k-nwg" firstAttribute="leading" secondItem="IzX-EL-tbv" secondAttribute="leading" id="LK2-uG-SU6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="b1c-Sh-yvK" secondAttribute="trailing" constant="-16" id="bKP-7i-kbQ"/>
                             <constraint firstItem="IzX-EL-tbv" firstAttribute="top" secondItem="Fza-Em-mEA" secondAttribute="bottom" id="cZf-C7-1lf"/>
                             <constraint firstItem="E6T-8k-nwg" firstAttribute="top" secondItem="IzX-EL-tbv" secondAttribute="bottom" id="ddG-pV-K4U"/>
+                            <constraint firstItem="b1c-Sh-yvK" firstAttribute="leading" secondItem="EzU-bq-155" secondAttribute="leadingMargin" constant="-16" id="mnn-bF-112"/>
                             <constraint firstItem="IzX-EL-tbv" firstAttribute="leading" secondItem="EzU-bq-155" secondAttribute="leading" id="mqG-aK-Uqs"/>
+                            <constraint firstItem="4Ef-9P-Mpa" firstAttribute="top" secondItem="b1c-Sh-yvK" secondAttribute="bottom" id="tmV-Nb-A0K"/>
                             <constraint firstItem="E6T-8k-nwg" firstAttribute="trailing" secondItem="IzX-EL-tbv" secondAttribute="trailing" id="v8h-hv-yDh"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Vh1-Fx-ONE"/>
+                    <tabBarItem key="tabBarItem" title="Group" id="Vh1-Fx-ONE"/>
                     <connections>
+                        <outlet property="DoneButton" destination="tBL-Vl-Eie" id="name-outlet-tBL-Vl-Eie"/>
                         <outlet property="SearchBar" destination="E6T-8k-nwg" id="name-outlet-E6T-8k-nwg"/>
                         <outlet property="TableView" destination="b1c-Sh-yvK" id="name-outlet-b1c-Sh-yvK"/>
-                        <outlet property="DoneButton" destination="tBL-Vl-Eie" id="name-outlet-tBL-Vl-Eie"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aTc-1h-cUi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -310,8 +314,8 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="524-I4-rtc">
-                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="524-I4-rtc">
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
