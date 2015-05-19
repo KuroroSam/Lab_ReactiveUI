@@ -114,10 +114,6 @@
     <Compile Include="FilterDrawingCell.designer.cs">
       <DependentUpon>FilterDrawingCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="FilterGroupViewController.cs" />
-    <Compile Include="FilterGroupViewController.designer.cs">
-      <DependentUpon>FilterGroupViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="FilterGroupCell.cs" />
     <Compile Include="FilterGroupCell.designer.cs">
       <DependentUpon>FilterGroupCell.cs</DependentUpon>
@@ -134,6 +130,10 @@
     <Compile Include="FilterLocationViewController.cs" />
     <Compile Include="FilterLocationViewController.designer.cs">
       <DependentUpon>FilterLocationViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilterGroupViewController.cs" />
+    <Compile Include="FilterGroupViewController.designer.cs">
+      <DependentUpon>FilterGroupViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
