@@ -25,14 +25,21 @@ namespace testXS
 			ViewModel = new PlanViewModel ();
 
 
+
 		}
 
 		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
 		{
 			if (segue.Identifier == @"ShowFilter") {
 				var controller = segue.DestinationViewController as UITabBarController;
-				(controller.ViewControllers[0] as FilterLocationController).ViewModel = ViewModel.FilterLocationVM;
-				(controller.ViewControllers[1] as FilterGroupViewController).ViewModel = ViewModel.FilterGroup;
+				(controller.ViewControllers [0] as FilterLocationController).ViewModel = ViewModel.FilterLocationVM;
+				(controller.ViewControllers [1] as FilterGroupViewController).ViewModel = ViewModel.FilterGroup;
+			} else if (segue.Identifier == @"ShowFilter2"){
+				var controller = segue.DestinationViewController as FilterLocationController;
+				controller.ViewModel = ViewModel.FilterLocationVM;
+//				controller._nav = this.NavigationController;
+//				var s = this.NavigationController;
+
 			}
 
 		

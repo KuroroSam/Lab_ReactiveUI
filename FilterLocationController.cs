@@ -14,7 +14,17 @@ namespace testXS
 	{
 		public FilterLocationController (IntPtr handle) : base (handle)
 		{
+//			var ppcd = new UIPopoverPresentationControllerDelegateRx_Sam (_nav);
+//			this.PopoverPresentationController.Delegate = ppcd;
 		}
+
+//		[Export("initWithCoder:")]
+//		public FilterLocationController(NSCoder coder)
+//		{
+//			base.Init ();// super.init(coder: aDecoder)
+//
+//		
+//		}
 
 		FilterViewModel<LocationViewModel, int> _ViewModel;
 		public FilterViewModel<LocationViewModel, int> ViewModel {
@@ -26,10 +36,11 @@ namespace testXS
 			get { return ViewModel; }
 			set { ViewModel = (FilterViewModel<LocationViewModel, int>)value; }
 		}
+			
+
 
 		public override void ViewDidLoad ()
 		{
-			
 			base.LoadView ();
 			const string cellKey = @"FilterLocationCell";
 
@@ -47,15 +58,14 @@ namespace testXS
 				c.Item1.DeselectRow(c.Item2,true);
 
 			});
-
+				
 			this.Bind (ViewModel, vm => vm.SearchQuery, v => v.SearhBar.Text);
 
 			//UI Staff
-			DoneButton.Clicked += delegate {
-				this.DismissViewController(true,null);
-			};
+//			DoneButton.Clicked += delegate {
+//				this.DismissViewController(true,null);
+//			};
 		}
-
 	
 	}
 }
