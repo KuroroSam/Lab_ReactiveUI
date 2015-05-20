@@ -21,7 +21,8 @@ namespace testXS
 
 			this.OneWayBind(this.ViewModel, x => x.Title, x => x.TextLabel.Text);
 			this.OneWayBind(this.ViewModel, x => x.Count, x => x.DetailTextLabel.Text);
-			this.OneWayBind (this.ViewModel, x => x.Selected,x=>x.Accessory,null,null,new CheckMarkConverter());
+			this.OneWayBind(this.ViewModel, x => x.Count, x => x.DetailTextLabel.Hidden,null, null, new HiddenConverter());
+			this.OneWayBind(this.ViewModel, x => x.Selected,x=>x.Accessory,null,null,new CheckMarkConverter());
 			//this.Accessory = UITableViewCellAccessory.Checkmark;
 
 		}

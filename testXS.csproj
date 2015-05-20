@@ -135,6 +135,8 @@
     <Compile Include="FilterGroupViewController.designer.cs">
       <DependentUpon>FilterGroupViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="BindingTypeConverter\CheckMarkConverter.cs" />
+    <Compile Include="BindingTypeConverter\HiddenConverter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -142,5 +144,8 @@
       <Project>{E867BC04-3E2F-4EC4-BAAE-F62720292D14}</Project>
       <Name>Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BindingTypeConverter\" />
   </ItemGroup>
 </Project>
