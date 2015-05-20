@@ -126,7 +126,6 @@
     <Compile Include="FilterLocationCell.designer.cs">
       <DependentUpon>FilterLocationCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="TestPopoverDelegate.cs" />
     <Compile Include="FilterLocationViewController.cs" />
     <Compile Include="FilterLocationViewController.designer.cs">
       <DependentUpon>FilterLocationViewController.cs</DependentUpon>
@@ -137,6 +136,10 @@
     </Compile>
     <Compile Include="BindingTypeConverter\CheckMarkConverter.cs" />
     <Compile Include="BindingTypeConverter\HiddenConverter.cs" />
+    <Compile Include="FilterIssueTypeViewController.cs" />
+    <Compile Include="FilterIssueTypeViewController.designer.cs">
+      <DependentUpon>FilterIssueTypeViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

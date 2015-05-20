@@ -6,13 +6,14 @@ using ReactiveUI;
 using UIKit.Rx;
 using Core.ViewModels;
 using System.Linq;
-
+using Splat;
+using Core.Repository;
 
 namespace testXS
 {
-	partial class FilterLocationViewController : ReactiveViewController,IViewFor<FilterViewModel<LocationViewModel, int>>
+	partial class FilterIssueTypeViewController : ReactiveViewController,IViewFor<FilterViewModel<LocationViewModel, int>>,IEnableLogger
 	{
-		public FilterLocationViewController (IntPtr handle) : base (handle)
+		public FilterIssueTypeViewController (IntPtr handle) : base (handle)
 		{
 		}
 
@@ -24,14 +25,15 @@ namespace testXS
 			const string cellKey = @"FilterLocationCell";
 
 
-			TableView.RegisterClassForCellReuse(typeof(FilterLocationCell),cellKey);
-			//TableView.Source = new ReactiveTableViewSource<LocationViewModel>(TableView,ViewModel.SearchResults,new Foundation.NSString(cellKey),44,cell=>{});
-
-			this.ViewModel.WhenAnyValue (vm => vm.SearchResults).BindTo<LocationViewModel,FilterLocationCell> (TableView, new Foundation.NSString (cellKey), 44);
-			this.Bind (ViewModel, vm => vm.SearchQuery, v => v.SearchBar.Text);
+//			TableView.RegisterClassForCellReuse(typeof(FilterLocationCell),cellKey);
 
 
-			//seem should do in this way
+//			ViewModel = new FilterViewModel<LocationViewModel,int> (new LocationRepository());
+//			var s = new ReactiveTableViewSource<LocationViewModel>(TableView,ViewModel.SearchResults,new Foundation.NSString(cellKey),44,cell=>{});
+//
+//			TableView.Source = s;
+
+
 			var tvd = new UITableViewDelegateRx ();
 			TableView.Delegate = tvd;
 
@@ -42,13 +44,6 @@ namespace testXS
 				c.Item1.DeselectRow(c.Item2,true);
 
 			});
-
-
-
-			//old way
-			DoneButton.Clicked += (object sender, EventArgs e) => {
-				this.DismissViewController(true,null);
-			};
 		}
 
 		FilterViewModel<LocationViewModel, int> _ViewModel;
