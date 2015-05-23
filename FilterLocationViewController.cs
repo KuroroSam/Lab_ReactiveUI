@@ -26,7 +26,6 @@ namespace testXS
 
 			TableView.RegisterClassForCellReuse(typeof(FilterLocationCell),cellKey);
 			//TableView.Source = new ReactiveTableViewSource<LocationViewModel>(TableView,ViewModel.SearchResults,new Foundation.NSString(cellKey),44,cell=>{});
-
 			this.ViewModel.WhenAnyValue (vm => vm.SearchResults).BindTo<LocationViewModel,FilterLocationCell> (TableView, new Foundation.NSString (cellKey), 44);
 			this.Bind (ViewModel, vm => vm.SearchQuery, v => v.SearchBar.Text);
 

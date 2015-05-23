@@ -8,10 +8,14 @@ using Core.ViewModels;
 using System.Linq;
 using Splat;
 using Core.Repository;
+using System.Reactive.Subjects;
+using System.Reactive.Linq;
+using System.Collections.Generic;
+using System.Reactive.Disposables;
 
 namespace testXS
 {
-	partial class FilterIssueTypeViewController : ReactiveViewController,IViewFor<FilterViewModel<LocationViewModel, int>>,IEnableLogger
+	partial class FilterIssueTypeViewController : ReactiveViewController,IViewFor<FilterSectionViewModel<StandardDefectViewModel, int,FilterStandardDefectCell>>,IEnableLogger
 	{
 		public FilterIssueTypeViewController (IntPtr handle) : base (handle)
 		{
@@ -22,17 +26,12 @@ namespace testXS
 			base.ViewDidLoad ();
 
 			var top = this.TopLayoutGuide;
-			const string cellKey = @"FilterLocationCell";
+			const string cellKey = @"FilterStandardDefect";
+			TableView.RegisterClassForCellReuse(typeof(FilterStandardDefectCell),cellKey);
 
+			ViewModel = new FilterSectionViewModel<StandardDefectViewModel,int,FilterStandardDefectCell> (new StandardDefectRepository ());
 
-//			TableView.RegisterClassForCellReuse(typeof(FilterLocationCell),cellKey);
-
-
-//			ViewModel = new FilterViewModel<LocationViewModel,int> (new LocationRepository());
-//			var s = new ReactiveTableViewSource<LocationViewModel>(TableView,ViewModel.SearchResults,new Foundation.NSString(cellKey),44,cell=>{});
-//
-//			TableView.Source = s;
-
+			this.ViewModel.WhenAnyValue (c => c.SectionList).BindTo<StandardDefectViewModel,FilterStandardDefectCell> (TableView);
 
 			var tvd = new UITableViewDelegateRx ();
 			TableView.Delegate = tvd;
@@ -42,19 +41,25 @@ namespace testXS
 				ViewModel.SelectedItem = ViewModel.SearchResults.ElementAt(index);
 				//UI Deselceted Row
 				c.Item1.DeselectRow(c.Item2,true);
-
 			});
+
+
+			this.Bind (ViewModel, vm => vm.SearchQuery, v => v.SearchBar.Text);
+
 		}
 
-		FilterViewModel<LocationViewModel, int> _ViewModel;
-		public FilterViewModel<LocationViewModel, int> ViewModel {
+
+	
+
+		FilterSectionViewModel<StandardDefectViewModel, int,FilterStandardDefectCell> _ViewModel;
+		public FilterSectionViewModel<StandardDefectViewModel, int,FilterStandardDefectCell> ViewModel {
 			get { return _ViewModel; }
 			set { this.RaiseAndSetIfChanged(ref _ViewModel, value); }
 		}
 
 		object IViewFor.ViewModel {
 			get { return ViewModel; }
-			set { ViewModel = (FilterViewModel<LocationViewModel, int>)value; }
+			set { ViewModel = (FilterSectionViewModel<StandardDefectViewModel, int,FilterStandardDefectCell>)value; }
 		}
 	}
 }

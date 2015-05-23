@@ -34,6 +34,7 @@ namespace testXS
 				var controller = segue.DestinationViewController as UITabBarController;
 				(controller.ViewControllers [0] as FilterLocationViewController).ViewModel = ViewModel.FilterLocationVM;
 				(controller.ViewControllers [1] as FilterGroupViewController).ViewModel = ViewModel.FilterGroupVM;
+		//		(controller.ViewControllers [4] as FilterIssueTypeViewController).ViewModel = ViewModel.FilterIssueVM;
 			} else if (segue.Identifier == @"ShowFilter2"){
 				
 

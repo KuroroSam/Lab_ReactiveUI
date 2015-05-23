@@ -140,6 +140,11 @@
     <Compile Include="FilterIssueTypeViewController.designer.cs">
       <DependentUpon>FilterIssueTypeViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="FilterStandardDefectCell.cs" />
+    <Compile Include="FilterStandardDefectCell.designer.cs">
+      <DependentUpon>FilterStandardDefectCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\FilterSectionViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -150,5 +155,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BindingTypeConverter\" />
+    <Folder Include="ViewModel\" />
   </ItemGroup>
 </Project>

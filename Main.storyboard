@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3" misplaced="YES">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3">
                                 <rect key="frame" x="252" y="137" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="kOx-eL-zbt"/>
@@ -25,7 +25,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4" misplaced="YES">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4">
                                 <rect key="frame" x="252" y="200" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -177,7 +177,7 @@
         <!--Issue-->
         <scene sceneID="nTl-3G-9rt">
             <objects>
-                <viewController id="ZYh-MP-NlJ" sceneMemberID="viewController" customClass="FilterIssueTypeViewController">
+                <viewController id="ZYh-MP-NlJ" customClass="FilterIssueTypeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qgW-Kr-1ZK"/>
                         <viewControllerLayoutGuide type="bottom" id="OFb-O3-98o"/>
@@ -186,7 +186,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o7W-nT-i0z">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o7W-nT-i0z">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="Issue" id="GhF-EP-qiL">
@@ -194,21 +194,33 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NXC-Bs-NoA">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="NXC-Bs-NoA">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Mmy-pD-uES">
-                                <rect key="frame" x="0.0" y="108" width="609" height="492"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Mmy-pD-uES">
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="NXC-Bs-NoA" secondAttribute="trailing" constant="-16" id="0g2-C8-xEY"/>
+                            <constraint firstItem="o7W-nT-i0z" firstAttribute="top" secondItem="qgW-Kr-1ZK" secondAttribute="bottom" id="0nd-6c-N32"/>
+                            <constraint firstItem="OFb-O3-98o" firstAttribute="top" secondItem="Mmy-pD-uES" secondAttribute="bottom" id="1WW-ob-gJ5"/>
+                            <constraint firstAttribute="leading" secondItem="Mmy-pD-uES" secondAttribute="leading" id="4V3-uA-k2s"/>
+                            <constraint firstItem="NXC-Bs-NoA" firstAttribute="leading" secondItem="ixD-vO-NTI" secondAttribute="leadingMargin" constant="-16" id="6FC-E0-CKJ"/>
+                            <constraint firstItem="NXC-Bs-NoA" firstAttribute="top" secondItem="o7W-nT-i0z" secondAttribute="bottom" id="Fcv-E8-hsP"/>
+                            <constraint firstItem="Mmy-pD-uES" firstAttribute="top" secondItem="NXC-Bs-NoA" secondAttribute="bottom" id="P7U-zY-ssZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="o7W-nT-i0z" secondAttribute="trailing" constant="-16" id="qlk-5b-YBP"/>
+                            <constraint firstItem="o7W-nT-i0z" firstAttribute="leading" secondItem="ixD-vO-NTI" secondAttribute="leadingMargin" constant="-16" id="rja-fb-oNM"/>
+                            <constraint firstItem="Mmy-pD-uES" firstAttribute="trailing" secondItem="ixD-vO-NTI" secondAttribute="trailing" id="tbt-PQ-z10"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Issue" id="P8b-lG-0Ak"/>
                     <connections>
-                        <outlet property="TableView" destination="Mmy-pD-uES" id="name-outlet-Mmy-pD-uES"/>
                         <outlet property="SearchBar" destination="NXC-Bs-NoA" id="name-outlet-NXC-Bs-NoA"/>
+                        <outlet property="TableView" destination="Mmy-pD-uES" id="name-outlet-Mmy-pD-uES"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCT-lI-v2R" userLabel="First Responder" sceneMemberID="firstResponder"/>
