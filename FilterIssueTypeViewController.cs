@@ -37,8 +37,11 @@ namespace testXS
 			TableView.Delegate = tvd;
 
 			tvd.RowSelectedObs.Subscribe (c => {
-				var index = c.Item2.Row;
-				ViewModel.SelectedItem = ViewModel.SearchResults.ElementAt(index);
+				var rowIndex = c.Item2.Row;
+				var sectionIndex = c.Item2.Section;
+
+
+				ViewModel.SelectedItem = ViewModel.SectionResult[sectionIndex][rowIndex];
 				//UI Deselceted Row
 				c.Item1.DeselectRow(c.Item2,true);
 			});
