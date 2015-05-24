@@ -43,6 +43,11 @@ namespace testXS
 			});
 
 
+			this.ViewModel.SearchResults.CountChanged.Subscribe (c =>{
+				var t = c;
+			});
+
+
 
 			//old way
 			DoneButton.Clicked += (object sender, EventArgs e) => {

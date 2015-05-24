@@ -12,10 +12,11 @@ using System.Reactive.Subjects;
 using System.Reactive.Linq;
 using System.Collections.Generic;
 using System.Reactive.Disposables;
+using System.ComponentModel;
 
 namespace testXS
 {
-	partial class FilterIssueTypeViewController : ReactiveViewController,IViewFor<FilterSectionViewModel<StandardDefectViewModel, int,FilterStandardDefectCell>>,IEnableLogger
+	partial class FilterIssueTypeViewController : ReactiveViewController,IViewFor<FilterViewModel<StandardDefectViewModel, int>>,IEnableLogger
 	{
 		public FilterIssueTypeViewController (IntPtr handle) : base (handle)
 		{
@@ -28,10 +29,23 @@ namespace testXS
 			var top = this.TopLayoutGuide;
 			const string cellKey = @"FilterStandardDefect";
 			TableView.RegisterClassForCellReuse(typeof(FilterStandardDefectCell),cellKey);
+//
+			 this.ViewModel.WhenAnyValue(c => c.SearchResults)
+				.Select(c=> CreateSection(c))
+				.BindTo<StandardDefectViewModel,FilterStandardDefectCell>(TableView);
 
-			ViewModel = new FilterSectionViewModel<StandardDefectViewModel,int,FilterStandardDefectCell> (new StandardDefectRepository ());
 
-			this.ViewModel.WhenAnyValue (c => c.SectionList).BindTo<StandardDefectViewModel,FilterStandardDefectCell> (TableView);
+			//hack for not change
+			this.ViewModel.SearchResults.CountChanged.Subscribe (d =>{
+
+				//TableView.Source = new ReactiveTableViewSource<StandardDefectViewModel>(TableView,ViewModel.SearchResults,new Foundation.NSString(cellKey),44,cell=>{});
+				this.ViewModel.WhenAnyValue(c => c.SearchResults)
+					.Select(c=> CreateSection(c))
+					.BindTo<StandardDefectViewModel,FilterStandardDefectCell>(TableView);
+				
+			});
+				
+
 
 			var tvd = new UITableViewDelegateRx ();
 			TableView.Delegate = tvd;
@@ -41,7 +55,7 @@ namespace testXS
 				var sectionIndex = c.Item2.Section;
 
 
-				ViewModel.SelectedItem = ViewModel.SectionResult[sectionIndex][rowIndex];
+				//ViewModel.SelectedItem = ViewModel.SectionResult[sectionIndex][rowIndex];
 				//UI Deselceted Row
 				c.Item1.DeselectRow(c.Item2,true);
 			});
@@ -51,18 +65,35 @@ namespace testXS
 
 		}
 
+		private static ReactiveList<TableSectionInformation<StandardDefectViewModel,FilterStandardDefectCell>> CreateSection(ReactiveList<StandardDefectViewModel> list)
+		{
+			var group  = list.GroupBy(g=> g.TypeTitle);
 
+			var sectionList = new ReactiveList<TableSectionInformation<StandardDefectViewModel,FilterStandardDefectCell>> ();
+
+			foreach (var item in group) {
+
+				var sectionItem = item.Select (g => g);
+				var reactiveList = new ReactiveList<StandardDefectViewModel> (sectionItem);
+				var section = new TableSectionInformation<StandardDefectViewModel,FilterStandardDefectCell>(reactiveList,new Foundation.NSString (@"FilterStandardDefect"), 44.0f);
+				section.Header = new TableSectionHeader (item.Key);
+			
+				sectionList.Add (section);
+			}
+
+			return sectionList;
+		}
 	
 
-		FilterSectionViewModel<StandardDefectViewModel, int,FilterStandardDefectCell> _ViewModel;
-		public FilterSectionViewModel<StandardDefectViewModel, int,FilterStandardDefectCell> ViewModel {
+		FilterViewModel<StandardDefectViewModel, int> _ViewModel;
+		public FilterViewModel<StandardDefectViewModel, int> ViewModel {
 			get { return _ViewModel; }
 			set { this.RaiseAndSetIfChanged(ref _ViewModel, value); }
 		}
 
 		object IViewFor.ViewModel {
 			get { return ViewModel; }
-			set { ViewModel = (FilterSectionViewModel<StandardDefectViewModel, int,FilterStandardDefectCell>)value; }
+			set { ViewModel = (FilterViewModel<StandardDefectViewModel, int>)value; }
 		}
 	}
 }
