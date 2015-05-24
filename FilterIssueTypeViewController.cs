@@ -30,19 +30,32 @@ namespace testXS
 			const string cellKey = @"FilterStandardDefect";
 			TableView.RegisterClassForCellReuse(typeof(FilterStandardDefectCell),cellKey);
 //
-			 this.ViewModel.WhenAnyValue(c => c.SearchResults)
-				.Select(c=> CreateSection(c))
+			this.ViewModel.WhenAnyValue (c => c.SearchResults)
+				.Select (c => CreateSection (c))
 				.BindTo<StandardDefectViewModel,FilterStandardDefectCell>(TableView);
 
 
-			//hack for not change
+			//hack for not change,
+			//bind in 2 time
 			this.ViewModel.SearchResults.CountChanged.Subscribe (d =>{
-
-				//TableView.Source = new ReactiveTableViewSource<StandardDefectViewModel>(TableView,ViewModel.SearchResults,new Foundation.NSString(cellKey),44,cell=>{});
+				
 				this.ViewModel.WhenAnyValue(c => c.SearchResults)
 					.Select(c=> CreateSection(c))
 					.BindTo<StandardDefectViewModel,FilterStandardDefectCell>(TableView);
-				
+
+				var tvdX = new UITableViewDelegateRx ();
+				TableView.Delegate = tvdX;
+
+				tvdX.RowSelectedObs.Subscribe (c => {
+					var rowIndex = c.Item2.Row;
+					var sectionIndex = c.Item2.Section;
+
+					var cell = c.Item1.CellAt(c.Item2);
+					var vm = (cell as FilterStandardDefectCell).ViewModel;
+					ViewModel.SelectedItem = vm;
+					//UI Deselceted Row
+					c.Item1.DeselectRow(c.Item2,true);
+				});
 			});
 				
 
@@ -54,8 +67,9 @@ namespace testXS
 				var rowIndex = c.Item2.Row;
 				var sectionIndex = c.Item2.Section;
 
-
-				//ViewModel.SelectedItem = ViewModel.SectionResult[sectionIndex][rowIndex];
+				var cell = c.Item1.CellAt(c.Item2);
+				var vm = (cell as FilterStandardDefectCell).ViewModel;
+				ViewModel.SelectedItem = vm;
 				//UI Deselceted Row
 				c.Item1.DeselectRow(c.Item2,true);
 			});
@@ -64,6 +78,13 @@ namespace testXS
 			this.Bind (ViewModel, vm => vm.SearchQuery, v => v.SearchBar.Text);
 
 		}
+
+//		private static ILookup<String,StandardDefectViewModel> CreateSection(List<StandardDefectViewModel> list)
+//		{
+//			var lookup = list.ToLookup (g => g.TypeTitle);
+//
+//			return lookup;
+//		}
 
 		private static ReactiveList<TableSectionInformation<StandardDefectViewModel,FilterStandardDefectCell>> CreateSection(ReactiveList<StandardDefectViewModel> list)
 		{
