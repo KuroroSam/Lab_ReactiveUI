@@ -8,6 +8,9 @@ using Core.ViewModels;
 
 namespace testXS
 {
+	/*
+	 * MT4112 The registrar found an invalid type `*`. Registering generic types with ObjectiveC is not supported, and may lead to random behavior and/or crashes (for backwards compatibility with older versions of Xamarin.iOS it is possible to ignore this error by passing --unsupported--enable-generics-in-registrar as an additional mtouch argument in the project's iOS Build options page. See 
+	 */
 	partial class FilterStandardDefectCell :  ReactiveTableViewCell, IViewFor<StandardDefectViewModel>
 	{
 		public FilterStandardDefectCell (IntPtr handle) : base (handle)

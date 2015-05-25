@@ -16,6 +16,10 @@ namespace testXS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIBarButtonItem CancelButton { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UISearchBar SearchBar { get; set; }
 
 		[Outlet]
@@ -24,6 +28,10 @@ namespace testXS
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (CancelButton != null) {
+				CancelButton.Dispose ();
+				CancelButton = null;
+			}
 			if (SearchBar != null) {
 				SearchBar.Dispose ();
 				SearchBar = null;

@@ -16,6 +16,10 @@ namespace testXS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIBarButtonItem CancelButton { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIBarButtonItem DoneButton { get; set; }
 
 		[Outlet]
@@ -28,6 +32,10 @@ namespace testXS
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (CancelButton != null) {
+				CancelButton.Dispose ();
+				CancelButton = null;
+			}
 			if (DoneButton != null) {
 				DoneButton.Dispose ();
 				DoneButton = null;

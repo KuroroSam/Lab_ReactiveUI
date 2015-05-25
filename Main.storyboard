@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3" misplaced="YES">
                                 <rect key="frame" x="252" y="137" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="kOx-eL-zbt"/>
@@ -25,7 +25,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4" misplaced="YES">
                                 <rect key="frame" x="252" y="200" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -190,6 +190,7 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="Issue" id="GhF-EP-qiL">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="RrR-1p-bQq"/>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="gtH-4S-Zef"/>
                                     </navigationItem>
                                 </items>
@@ -221,6 +222,7 @@
                     <connections>
                         <outlet property="SearchBar" destination="NXC-Bs-NoA" id="name-outlet-NXC-Bs-NoA"/>
                         <outlet property="TableView" destination="Mmy-pD-uES" id="name-outlet-Mmy-pD-uES"/>
+                        <outlet property="CancelButton" destination="RrR-1p-bQq" id="name-outlet-RrR-1p-bQq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCT-lI-v2R" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -461,6 +463,7 @@
                                 <items>
                                     <navigationItem title="Location" id="5TK-Hq-31K">
                                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="lz0-cg-uVp"/>
+                                        <barButtonItem id="109" translatesAutoresizingMaskIntoConstraints="NO" key="leftBarButtonItem" systemItem="cancel"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -492,6 +495,7 @@
                         <outlet property="DoneButton" destination="lz0-cg-uVp" id="name-outlet-lz0-cg-uVp"/>
                         <outlet property="SearchBar" destination="c06-PH-Ds6" id="name-outlet-c06-PH-Ds6"/>
                         <outlet property="TableView" destination="524-I4-rtc" id="name-outlet-524-I4-rtc"/>
+                        <outlet property="CancelButton" destination="109" id="name-outlet-109"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wVY-XX-B1i" userLabel="First Responder" sceneMemberID="firstResponder"/>

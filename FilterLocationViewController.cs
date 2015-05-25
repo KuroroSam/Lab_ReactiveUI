@@ -48,6 +48,7 @@ namespace testXS
 			});
 
 
+			this.BindCommand(ViewModel, vm => vm.UnSelectAll, v => v.CancelButton);
 
 			//old way
 			DoneButton.Clicked += (object sender, EventArgs e) => {

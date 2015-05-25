@@ -56,6 +56,8 @@ namespace testXS
 
 			this.Bind (ViewModel, vm => vm.SearchQuery, v => v.SearchBar.Text);
 
+			this.BindCommand(ViewModel, vm => vm.UnSelectAll, v => v.CancelButton);
+
 		}
 
 //		private static ILookup<String,StandardDefectViewModel> CreateSection(List<StandardDefectViewModel> list)
