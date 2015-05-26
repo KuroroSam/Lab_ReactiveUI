@@ -58,6 +58,10 @@ namespace testXS
 
 			this.BindCommand(ViewModel, vm => vm.UnSelectAll, v => v.CancelButton);
 
+			this.DoneButton.Clicked += (object sender, EventArgs e) => {
+				this.DismissViewController (true, null);
+			};
+
 		}
 
 //		private static ILookup<String,StandardDefectViewModel> CreateSection(List<StandardDefectViewModel> list)

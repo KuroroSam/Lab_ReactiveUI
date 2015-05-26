@@ -223,6 +223,7 @@
                         <outlet property="SearchBar" destination="NXC-Bs-NoA" id="name-outlet-NXC-Bs-NoA"/>
                         <outlet property="TableView" destination="Mmy-pD-uES" id="name-outlet-Mmy-pD-uES"/>
                         <outlet property="CancelButton" destination="RrR-1p-bQq" id="name-outlet-RrR-1p-bQq"/>
+                        <outlet property="DoneButton" destination="gtH-4S-Zef" id="name-outlet-gtH-4S-Zef"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCT-lI-v2R" userLabel="First Responder" sceneMemberID="firstResponder"/>
