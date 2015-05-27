@@ -87,6 +87,8 @@
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\plot.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\plot.imageset\PlotIconBlue%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
@@ -144,6 +146,7 @@
     <Compile Include="FilterStandardDefectCell.designer.cs">
       <DependentUpon>FilterStandardDefectCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="DefectPlotView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>

@@ -14,8 +14,16 @@ namespace testXS
 	[Register ("PlanViewController")]
 	partial class PlanViewController
 	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITapGestureRecognizer TapGestureRecognizer { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
+			if (TapGestureRecognizer != null) {
+				TapGestureRecognizer.Dispose ();
+				TapGestureRecognizer = null;
+			}
 		}
 	}
 }

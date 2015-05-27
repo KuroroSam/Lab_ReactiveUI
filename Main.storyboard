@@ -220,10 +220,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Issue" id="P8b-lG-0Ak"/>
                     <connections>
-                        <outlet property="SearchBar" destination="NXC-Bs-NoA" id="name-outlet-NXC-Bs-NoA"/>
-                        <outlet property="TableView" destination="Mmy-pD-uES" id="name-outlet-Mmy-pD-uES"/>
                         <outlet property="CancelButton" destination="RrR-1p-bQq" id="name-outlet-RrR-1p-bQq"/>
                         <outlet property="DoneButton" destination="gtH-4S-Zef" id="name-outlet-gtH-4S-Zef"/>
+                        <outlet property="SearchBar" destination="NXC-Bs-NoA" id="name-outlet-NXC-Bs-NoA"/>
+                        <outlet property="TableView" destination="Mmy-pD-uES" id="name-outlet-Mmy-pD-uES"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCT-lI-v2R" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -381,15 +381,27 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="kBy-qJ-nAd" secondAttribute="trailing" id="0iE-Qj-0Gg"/>
                             <constraint firstItem="kBy-qJ-nAd" firstAttribute="leading" secondItem="pJG-vf-a4b" secondAttribute="leading" id="Ont-1w-aXr"/>
                             <constraint firstItem="kBy-qJ-nAd" firstAttribute="bottom" secondItem="B4E-hy-vJr" secondAttribute="top" id="PpA-Qc-DEk"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ayh-EF-CIT" appends="YES" id="MIn-Fy-2kt"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Plan View" id="9Wf-b4-3Ls"/>
+                    <connections>
+                        <outlet property="TapGestureRecognizer" destination="ayh-EF-CIT" id="name-outlet-ayh-EF-CIT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhG-T5-GBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ayh-EF-CIT">
+                    <connections>
+                        <outlet property="delegate" destination="BwT-2Y-K5j" id="I39-um-pzK"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-251" y="1514"/>
         </scene>
@@ -463,8 +475,8 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="Location" id="5TK-Hq-31K">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="109"/>
                                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="lz0-cg-uVp"/>
-                                        <barButtonItem id="109" translatesAutoresizingMaskIntoConstraints="NO" key="leftBarButtonItem" systemItem="cancel"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -493,10 +505,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Location" id="ghj-ea-xZb"/>
                     <connections>
+                        <outlet property="CancelButton" destination="109" id="name-outlet-109"/>
                         <outlet property="DoneButton" destination="lz0-cg-uVp" id="name-outlet-lz0-cg-uVp"/>
                         <outlet property="SearchBar" destination="c06-PH-Ds6" id="name-outlet-c06-PH-Ds6"/>
                         <outlet property="TableView" destination="524-I4-rtc" id="name-outlet-524-I4-rtc"/>
-                        <outlet property="CancelButton" destination="109" id="name-outlet-109"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wVY-XX-B1i" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -504,4 +516,7 @@
             <point key="canvasLocation" x="-305" y="-18"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plot" width="100" height="100"/>
+    </resources>
 </document>

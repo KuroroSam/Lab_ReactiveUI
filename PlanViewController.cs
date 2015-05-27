@@ -9,10 +9,12 @@ using CoreAnimation;
 using Foundation;
 using CoreGraphics;
 using System.Collections.Generic;
+using System.Drawing;
+using Splat;
 
 namespace testXS
 {
-	partial class PlanViewController : ReactiveViewController, IViewFor<PlanViewModel>
+	partial class PlanViewController : ReactiveViewController, IViewFor<PlanViewModel>,IEnableLogger
 	{
 		public PlanViewController (IntPtr handle) : base (handle)
 		{
@@ -25,9 +27,34 @@ namespace testXS
 			ViewModel = new PlanViewModel ();
 
 
+			var plotImage = UIImage.FromBundle ("plot");
+			var plot = new UIImageView (plotImage);
+			plot.Frame = new Rectangle (150,100,50, 50); 
+			plot.UserInteractionEnabled = true;
+			this.Add (plot);
+
+
+			// Tap gesture
+			var tapGesture = new UITapGestureRecognizer (tap => { 
+				var view = tap.View;
+				var loc = tap.LocationInView (view);
+
+
+				System.Diagnostics.Debug.WriteLine (loc.ToString ());
+			});
+			tapGesture.ShouldReceiveTouch += (recognizer, touch) => {
+				if (touch.View is UIImageView)
+				{
+					return true;
+				}
+				return false;
+			};
+			this.View.AddGestureRecognizer(tapGesture);
+			
 
 		}
 
+			
 		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
 		{
 			if (segue.Identifier == @"ShowFilter") {
