@@ -23,17 +23,31 @@ namespace testXS
 
 		public DefectPlotView()
 		{
-			//construct the ui
-			//var plotImage = UIImage.FromBundle ("plot");
-			var plot = new UIView(); //new UIImageView (plotImage);
+			//construct the UI
+			this.UserInteractionEnabled = true;
+			var plotImage = UIImage.FromBundle ("plot");
+			var plot = new UIImageView (plotImage);
 			plot.Bounds = new Rectangle (0,0,50, 50);
-			plot.BackgroundColor = UIColor.Red;
-			plot.UserInteractionEnabled = true;
+			//plot.BackgroundColor = UIColor.Red;
+			///plot.UserInteractionEnabled = true;
 			this.Add (plot);
 
-			//set up binding
+			var label = new UILabel();
+			label.Frame = new Rectangle (6,14,28,20);
+			label.AdjustsFontSizeToFitWidth = true;
+			label.TextAlignment = UITextAlignment.Center;
+			this.GorupTitleLabel = label;
+			this.Add (GorupTitleLabel);
 
+
+
+
+			//set up binding
+			this.OneWayBind (ViewModel, vm => vm.GroupID,v => v.GorupTitleLabel.Text);
 		}
+
+		public UILabel GorupTitleLabel { get; set; }
+
 
 		public DefectViewModel _viewModel;
 
